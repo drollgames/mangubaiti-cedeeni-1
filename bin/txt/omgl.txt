@@ -1,0 +1,35 @@
+let message = "Seus dados foram hackeados (https://b.hnxd.org/dados/jj89omc75m) Pague 10 dolares para todos os dados serem excluídos e só você ter acesso, caso contrário iremos vazar suas informações."; // message to be sent
+let timeInterval = 2500; // 2.5 seconds interval
+ 
+let sentCount = 0; // count how many times the message is being sent
+setInterval(newBotSession, timeInterval); // call the newBotSession function at set intervals
+ 
+function newBotSession()
+{
+//get the disconnect or new chat button
+let newSession = document.querySelector('.disconnectbtn');
+ 
+//get the message input box
+
+ 
+let messageBox = document.querySelector('.chatmsg');
+ 
+//get the send button
+let sendButton = document.querySelector('.sendbtn');
+ 
+//create a new session
+newSession.click();
+ 
+//insert the message
+messageBox.innerHTML = message;
+ 
+//click the send button
+sendButton.click();
+ 
+//check if the send button is active to ensure the message was actually sent
+if( !sendButton.hasAttribute( "disabled" ) )
+console.log( "MESSAGE SENT " + ( ++sentCount ) + " TIMES!" ); //print the counter
+ 
+//end the session
+newSession.click();
+}
